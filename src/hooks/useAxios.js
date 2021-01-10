@@ -6,7 +6,7 @@ const useAxios = (localStorageKey, baseUrl) => {
 
     const addResponseData = async (formatter = data => data, remainingUrl = "") => {
         const resp = await axios.get(`${baseUrl}${remainingUrl}`);
-        setResponses(data => [...data, formatter(response.data)]);
+        setResponses(data => [...data, formatter(resp.data)]);
     };
 
     const clearRespStorage = () => setResponses([]);
