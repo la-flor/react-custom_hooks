@@ -14,4 +14,18 @@ function formatCard(data) {
   }
 }
 
-export { choice, formatCard };
+/* creates format from pokemon data */
+function formatPokemon(data) {
+  return {
+    id: uuid(),
+    front: data.sprites.front_default,
+    back: data.sprites.back_default,
+    name: data.name,
+    stats: data.stats.map(stat => ({
+      value: stat.base_stat,
+      name: stat.stat.name
+    }))
+  };
+}
+
+export { choice, formatCard, formatPokemon };
